@@ -1,0 +1,48 @@
+from flask import Flask, render_template
+
+from flask_bootstrap import Bootstrap
+
+app = Flask(__name__)
+Bootstrap(app)
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+@app.route("/voting")
+def login():
+    return render_template("login.html")
+
+@app.route("/voting")
+def product1():
+    return render_template("voting.html")
+
+
+
+def login():
+
+    data= request.get_json(force=True);
+    br=mechanize.Browser()
+    br.open('https://weaveprod.ucdp.utah.edu/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.web.GeoServerLoginPage')
+    br.select_form(nr=0)
+    username=data['username'];
+    password=data['password'];
+    br['username']= username
+    br['password']= password
+
+    response= br.submit()
+    mainpage=response.read()
+    val=mainpage.find('Invalid username/password combination')
+
+    if val==-1:
+            success = True
+    else:
+        success=False
+
+    print success
+
+    return jsonify(text=success);
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
