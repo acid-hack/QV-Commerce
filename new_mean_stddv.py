@@ -1,15 +1,14 @@
-from math import *
+from math import  sqrt
 
-def new_mean(mean , new_value , no_values ):
+def new_mean(m , value , no_values ):
 
-    return (no_values * mean + new_value) / (no_values + 1)
+    return (no_values * m + value) / (no_values + 1)
 
-def new_std_dv(std_dv , mean , new_value , no_values):
+def new_std_dv(std_dv , m , value , no_values):
 
-        V = no_values * (std_dv)**2 + (new_value - mean) * (new_value - ( (no_values * mean + new_value) / (no_values + 1) ) )
+    Sx = (no_values - 1)* std_dv **2 + ( value - m) * (value - (no_values * m + value) / (no_values + 1) )
+    V = Sx/(no_values)
 
-        return sqrt( V / (no_values + 1))
+    return sqrt( V)
 
-mean = new_mean(mean , new_value , no_values )
-std_dv = new_std_dv(std_dv , mean , new_value , no_values)
-no_values += 1
+
