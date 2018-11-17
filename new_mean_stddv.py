@@ -12,4 +12,4 @@ def new_std_dv(std_dv , mean , new_value , no_values):
 
 mean = new_mean(mean , new_value , no_values )
 std_dv = new_std_dv(std_dv , mean , new_value , no_values)
-
+no_values += 1
