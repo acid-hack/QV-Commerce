@@ -21,4 +21,20 @@ Class Account(object):
         print("account is now registered")
         #user logged in
         return email, password
+<<<<<<< Updated upstream
     
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
